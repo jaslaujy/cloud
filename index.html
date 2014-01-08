@@ -1,1 +1,50 @@
-http://run.plnkr.co/rWsdcIrXiFGqngjE/
+<!doctype html>
+<html ng-app="app" bgcolor=''>
+  <header>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.js"></script>
+    <script language="javascript" type="text/javascript">
+      angular.module('app', []);
+      
+      //Whatever you put on the controller scope,
+      //will be availalble in the HTML element bound to the controller.
+      function MyController($scope){
+        $scope.newMessage = "Coke";
+        $scope.messages = ["Coke is better!", "Yes!"]; 
+        
+        $scope.newMessage2 = "Pepsi";
+        $scope.messages2 = ["Pepsi is better!", "Yes!"];
+        
+        $scope.add = function(){
+          $scope.messages.push($scope.newMessage);
+          $scope.messages2.push($scope.newMessage2);
+        };
+      }
+    </script>
+  </header>
+  
+  <body ng-controller="MyController" bgcolor='lightgrey'>
+  <table>
+    <tr><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEBITfHNK7ElRTtW2GBJBAri82wJDwUGOQLrIyRf6USx7JFuJ7">
+    </tr>
+    <tr><br>Leave a shoutout!<br>  
+    <input type="text" ng-model="newMessage">
+    <input type="submit" ng-click="add()" >
+    <br>
+    <br> Messages: <br>
+    <ul>
+      <li ng-repeat="message in messages">
+        {{message}}
+      </li>
+    </ul>
+    <br> Messages2: <br>
+    <ul>
+      <li ng-repeat="message in messages2">
+        {{message}}
+      </li>
+    </ul>
+  </tr>   
+    
+  </table>
+  </body>
+  
+</html>
